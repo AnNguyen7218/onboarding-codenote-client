@@ -65,7 +65,7 @@ class NoteDetail extends Component <Props, States>  {
   }
 
   getNote() {
-    return API.get("notes", `/notes/${this.props.match.params.id}`);
+    return API.get("notes", `/notes/${this.props.match.params.id}`,{});
   }
 
   saveNote(note) {
@@ -75,7 +75,7 @@ class NoteDetail extends Component <Props, States>  {
   }
 
   deleteNote() {
-    return API.del('notes', `/notes/${this.props.match.params.id}`);
+    return API.del('notes', `/notes/${this.props.match.params.id}`,{});
   }
 
   validateForm() {

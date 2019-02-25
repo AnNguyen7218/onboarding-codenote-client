@@ -49,7 +49,7 @@ class Home extends Component <Props, State> {
   }
 
   notes() {
-    return API.get("notes", "/notes");
+    return API.get("notes", "/notes",{});
   }
 
   renderNotesList(notes) {
