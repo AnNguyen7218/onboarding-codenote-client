@@ -6,7 +6,16 @@ import { s3Upload } from '../../libs/awsLib'
 import config from "../../config";
 import "./index.css";
 
-export default class NewNote extends Component {
+interface Props {
+  history
+}
+
+interface State {
+  content: string,
+  isLoading: boolean
+}
+
+export default class NewNote extends Component <Props, State> {
   constructor(props) {
     super(props);
 

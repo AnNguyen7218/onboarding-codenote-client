@@ -7,7 +7,12 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { userHasAuthenticated } from '../../actions/authenticate';
 
-class Navigation extends React.Component {
+interface Props {
+  history,
+  userHasAuthenticated: (boolean) => void,
+  isAuthenticated: boolean
+}
+class Navigation extends React.Component <Props> {
   handleLogout = async () => {
     await Auth.signOut();
     this.props.userHasAuthenticated(false);

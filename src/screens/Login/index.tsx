@@ -7,7 +7,13 @@ import LoaderButton from '../../components/LoaderButton';
 import { userHasAuthenticated } from '../../actions/authenticate';
 import "./index.css";
 
-class Login extends Component {
+interface Props{
+
+}
+interface State{
+  
+}
+class Login extends Component <Props, State> {
   constructor(props) {
     super(props);
 

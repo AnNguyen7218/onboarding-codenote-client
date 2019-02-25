@@ -9,7 +9,20 @@ import { Auth } from 'aws-amplify';
 import LoaderButton from '../../components/LoaderButton';
 import "./index.css";
 
-class Signup extends Component {
+interface Props{
+  userHasAuthenticated: (boolean) => void,
+  history
+}
+
+interface State{
+  isLoading: boolean,
+  email: string,
+  password: string,
+  confirmPassword: string,
+  confirmationCode: string,
+  newUser: null
+}
+class Signup extends Component <Props, State>{
   constructor(props) {
     super(props);
 
