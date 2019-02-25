@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { API } from 'aws-amplify';
 import { PageHeader, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { connect } from 'react-redux'
+
 import "./index.css";
 
 class Home extends Component {
@@ -15,6 +17,7 @@ class Home extends Component {
   }
 
   async componentDidMount() {
+
     if (!this.props.isAuthenticated) {
       return;
     }
@@ -87,4 +90,8 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => (
+  {isAuthenticated: state.authenticate.isAuthenticated}
+)
+
+export default connect(mapStateToProps)(Home);
