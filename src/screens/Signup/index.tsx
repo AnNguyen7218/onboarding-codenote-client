@@ -6,12 +6,14 @@ import {
   ControlLabel
 } from "react-bootstrap";
 import { Auth } from 'aws-amplify';
+import { History } from 'history'
+
 import LoaderButton from '../../components/LoaderButton';
 import "./index.css";
 
 interface Props{
   userHasAuthenticated: (boolean) => void,
-  history
+  history: History
 }
 
 interface State{
@@ -20,7 +22,8 @@ interface State{
   password: string,
   confirmPassword: string,
   confirmationCode: string,
-  newUser: null
+  newUser: Object | null,
+  [x: string]: any
 }
 class Signup extends Component <Props, State>{
   constructor(props) {

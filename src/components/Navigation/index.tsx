@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { History } from 'history';
+
 import { userHasAuthenticated } from '../../actions/authenticate';
 
 interface Props {
-  history,
+  history: History,
   userHasAuthenticated: (boolean) => void,
   isAuthenticated: boolean
 }

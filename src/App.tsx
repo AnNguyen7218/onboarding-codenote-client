@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { Auth } from 'aws-amplify';
-import logo from './logo.svg';
+import { History } from 'history';
+
 import './App.css';
 import { userHasAuthenticated } from './actions/authenticate';
 import ScreensRoot from './screens/Root';
 
 interface Props {
-  history,
+  history: History,
   userHasAuthenticated: (boolean) => void
 }
 
