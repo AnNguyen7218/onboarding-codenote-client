@@ -1,12 +1,35 @@
 import React, { Component } from "react";
 import { API, Storage } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import { History } from 'history'
+
 import './index.css';
 import LoaderButton from '../../components/LoaderButton';
 import config from '../../config';
 import { s3Upload } from '../../libs/awsLib';
 
-class NoteDetail extends Component {
+interface Note {
+  noteId: string,
+  content: string,
+  createdAt: string,
+  attachment: string
+}
+
+interface Props {
+  match: {params: {id: string}},
+  history: History
+}
+
+interface States {
+  isLoading: boolean,
+  isDeleting: boolean,
+  note: Note | null,
+  content: string,
+  attachmentURL: string | null,
+  [x: string]: any
+}
+class NoteDetail extends Component <Props, States>  {
+  file: any
   constructor(props) {
     super(props);
 
@@ -42,7 +65,7 @@ class NoteDetail extends Component {
   }
 
   getNote() {
-    return API.get("notes", `/notes/${this.props.match.params.id}`);
+    return API.get("notes", `/notes/${this.props.match.params.id}`,{});
   }
 
   saveNote(note) {
@@ -52,7 +75,7 @@ class NoteDetail extends Component {
   }
 
   deleteNote() {
-    return API.del('notes', `/notes/${this.props.match.params.id}`);
+    return API.del('notes', `/notes/${this.props.match.params.id}`,{});
   }
 
   validateForm() {

@@ -7,7 +7,18 @@ import LoaderButton from '../../components/LoaderButton';
 import { userHasAuthenticated } from '../../actions/authenticate';
 import "./index.css";
 
-class Login extends Component {
+interface Props{
+  userHasAuthenticated: (boolean) => void
+}
+
+interface State{
+  email: string,
+  password: string,
+  isLoading: boolean,
+  [x: string]: any
+}
+
+class Login extends Component <Props, State> {
   constructor(props) {
     super(props);
 

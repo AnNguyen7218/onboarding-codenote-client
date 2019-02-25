@@ -3,12 +3,22 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { Auth } from 'aws-amplify';
-import logo from './logo.svg';
+import { History } from 'history';
+
 import './App.css';
 import { userHasAuthenticated } from './actions/authenticate';
 import ScreensRoot from './screens/Root';
 
-class App extends Component {
+interface Props {
+  history: History,
+  userHasAuthenticated: (boolean) => void
+}
+
+interface State {  
+  isAuthenticating: boolean
+}
+
+class App extends Component <Props, State> {
   constructor(props) {
     super(props);
 
