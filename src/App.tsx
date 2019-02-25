@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
-import logo from './logo.svg';
+import { connect } from 'react-redux'
+
 import './App.css';
 import ScreensRoot from './screens/Root';
+import { userHasAuthenticated } from './actions'
 
 class App extends Component {
   constructor(props) {
@@ -30,16 +32,21 @@ class App extends Component {
   handleLogout = async () => {
     await Auth.signOut();
     this.props.history.push('/login');
+    this.props.userHasAuthenticated(false);
   }
 
   render() {
     return (
       !this.state.isAuthenticating &&
-      <div className="App container">
-        <ScreensRoot />
-      </div>
+        <div className="App container">
+          <ScreensRoot />
+        </div>
     );
   }
 }
 
-export default withRouter(App);
+const mapDispatchToProps = dispatch => ({
+  userHasAuthenticated: (value) => dispatch(userHasAuthenticated(value))
+})
+
+export default withRouter(connect(null,mapDispatchToProps)(App));
