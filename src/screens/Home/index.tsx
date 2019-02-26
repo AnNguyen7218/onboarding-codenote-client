@@ -78,6 +78,7 @@ class Home extends Component<IProps, IStates> {
 }
 
   renderLander() {
+    console.log("Im in lander");
     return (
       <div className="lander">
         <h1>CodeNote</h1>
@@ -87,6 +88,8 @@ class Home extends Component<IProps, IStates> {
   }
 
   renderNotes() {
+    console.log("Im in notes");
+    
     return(
       <div className="notes">
         <PageHeader>All notes</PageHeader>
