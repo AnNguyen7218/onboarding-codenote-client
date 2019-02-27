@@ -12,7 +12,7 @@
     "aws-amplify": "^1.1.19",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
-    "babel-jest": "23.6.0",
+    "babel-jest": "^24.0.0",
     "babel-loader": "8.0.4",
     "babel-plugin-named-asset-import": "^0.3.0",
     "babel-preset-react-app": "^7.0.0",
@@ -83,13 +83,18 @@
     "not op_mini all"
   ],
   "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["json", "html"],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
+      "!src/**/*.d.ts",
+      "!src/libs/*",
+      "!src/*.ts",
+      "!src/config.tsx"
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
-      "react-app-polyfill/jsdom"
+      "<rootDir>/config/jest/skipWindownComplain.js"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
     "testMatch": [

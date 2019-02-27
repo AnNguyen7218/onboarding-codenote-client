@@ -57,7 +57,6 @@ class NoteDetail extends Component<IProps, IStates> {
       if (attachment) {
         attachmentURL = await Storage.vault.get(attachment);
       }
-
       this.setState({
         note,
         content,
