@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component renders without crashing 1`] = `
+<div
+  className="Login"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <FormGroup
+      bsClass="form-group"
+      bsSize="large"
+      controlId="email"
+    >
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Email
+      </ControlLabel>
+      <FormControl
+        autoFocus={true}
+        bsClass="form-control"
+        componentClass="input"
+        onChange={[Function]}
+        type="email"
+        value=""
+      />
+    </FormGroup>
+    <FormGroup
+      bsClass="form-group"
+      bsSize="large"
+      controlId="password"
+    >
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}
+      >
+        Password
+      </ControlLabel>
+      <FormControl
+        bsClass="form-control"
+        componentClass="input"
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+    </FormGroup>
+    <LoaderButton
+      block={true}
+      bsSize="large"
+      disabled={true}
+      isLoading={false}
+      loadingText="Logging in ..."
+      text="Login"
+      type="submit"
+    />
+  </form>
+</div>
+`;
